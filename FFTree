@@ -1,0 +1,80 @@
+public class FFTree{
+	
+
+  private int day =0;
+	
+  private int x;
+  private int y;
+  public FFTree(int x, int y){
+	  this.x=x;
+	  this.y=y;
+  }
+  private Status treeStatus;
+  private enum Status{
+	  HEALTHY,
+	  BURNING,
+	  BURNT;
+  }
+  
+  
+
+public int getX(){
+	  int new_x = this.x;
+	  int new_y= this.y;
+	  return new_x;
+	  
+  }
+
+ 
+// Returns the y-coordinate of the tree.
+  public int getY(){
+	  int new_x= this.x;
+	  int new_y = this.y;
+	  return new_y;
+  }
+
+  // Computes the Euclidean distance (norm 2) between this
+  // tree and the other tree
+  public double distanceTo(FFTree other){
+	  double new_x = (this.x-other.x)*(this.x-other.x);
+	  double new_y = (this.y-other.y)*(this.y-other.y);	  
+  return Math.sqrt(new_x+new_y);
+  }
+
+  // Sets the tree on fire. Has an effect only if the tree is
+  // healthy.
+  
+ 
+
+  // Sets the tree on fire. Has an effect only if the tree is
+  // healthy.  
+  public void setFire(){
+	   treeStatus=Status.BURNING;
+  }
+
+  // True if and only if the tree is currently on fire.
+  public boolean isBurning() {
+	 return treeStatus==Status.BURNING; 
+  }
+
+  // True if and only if the fire consumed the tree.
+  public boolean isBurnt(){
+	  return treeStatus==Status.BURNT;
+  }
+
+  // Advances one day for the tree.
+  public void newDay(){
+	  if (treeStatus==Status.BURNING){
+		  day++;
+		  if (day>3){
+			  
+			  treeStatus=Status.BURNT;
+			  day=0;
+		  }  
+	  }	  	  
+  }
+
+  // Additional methods (if you happen to need them) are to be
+  // left private.
+
+}
