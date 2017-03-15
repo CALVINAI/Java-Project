@@ -1,0 +1,35 @@
+
+
+import java.awt.Color;
+
+
+/**
+* A class that provides a graphical interface
+*
+* 
+*/
+public class FFViewer extends javax.swing.JFrame {
+
+ private java.awt.Image _bg = null;
+
+ /**
+  * Creates new form FFViewer
+  */
+ public FFViewer() {
+     initComponents();
+     this.setSize(600, 600);
+     _bg = new java.awt.image.BufferedImage(600, 600, java.awt.image.BufferedImage.TYPE_INT_RGB);
+     this.setVisible(true);
+     this.repaint();
+ }
+
+ /**
+  * Terminates both the viewer and the application!
+  *
+  * @param terminate If true, ends the execution of the application
+  */
+ public void kill(boolean terminate) {
+     this.dispose();
+     if (terminate) {
+         System.exit(0);
+}}}
